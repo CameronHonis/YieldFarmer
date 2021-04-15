@@ -1,1 +1,295 @@
-/* Styles go here */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: rgb(220,220,220);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* HEADER */
+header {
+  width: 100vw;
+  background: rgb(25, 35, 50);
+  display: flex;
+  height: 80px;
+  padding: 15px;
+}
+
+header h1 {
+  color: rgb(200,200,200);
+  margin-left: 2vw;
+}
+
+header p {
+  color: rgb(60, 80, 120);
+  font-weight: 700;
+  position: absolute;
+  top: 50px;
+  right: 15px;
+}
+/* LOADING SPINNER */
+#loading {
+  position: absolute;
+  background: rgba(255, 255, 255, .8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+#loading p {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  white-space: pre;
+}
+/* MAIN */
+#main {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#balancesTitle {
+  margin-top: 50px;
+  margin-bottom: 0;
+  font-weight: 750;
+  color: rgb(100, 100, 100);
+}
+
+#balancesLine {
+  width: 40%;
+  height: 2px;
+  margin-top: 5px;
+  background: rgb(150, 150, 150);
+}
+
+#balances p {
+  position: absolute;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 10px;
+  background: rgb(255, 255, 255);
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  z-index: 3;
+  line-height: 1;
+  padding-bottom: 4px;
+}
+
+#balances img {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#balances div {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background: rgb(240, 240, 240);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#daiBalIcon, #daiBalBG {
+  top: 270px;
+  left: calc(50vw - 220px);
+}
+
+#ethBalIcon, #ethBalBG {
+  top: 300px;
+  left: 50vw;
+}
+
+#dappBalIcon, #dappBalBG {
+  top: 270px;
+  left: calc(50vw + 220px);
+}
+
+#dappBal {
+  color: rgb(60, 150, 180);
+  top: 325px;
+  left: calc(50vw + 220px);
+}
+
+#daiBal {
+  color: rgb(150, 130, 50);
+  top: 325px;
+  left: calc(50vw - 220px);
+}
+
+#ethBal {
+  color: rgb(60, 90, 180);
+  top: 355px;
+  left: 50vw;
+}
+
+#transaction {
+  background: rgb(255,255,255);
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 245px;
+  box-shadow: 0 10px 20px -15px black;
+  overflow: hidden;
+}
+
+#transactionFitted {
+  padding: 20px;
+}
+
+#transactionTitle {
+  font-weight: 750;
+}
+
+#transaction input {
+  width: 560px;
+  height: 51px;
+  background: rgb(220,220,220);
+  border: 2px solid rgb(255,255,255);
+  border-radius: 8px;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: 650;
+}
+
+#transaction input:focus {
+  border: 2px solid rgb(50, 50, 50);
+  background: rgb(200,200,200);
+  outline: none;
+}
+
+#transaction input::placeholder {
+  color: rgb(180,180,180);
+}
+
+#transaction input:focus::placeholder {
+  color: rgb(150,150,150);
+}
+
+#currencyDropdown {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background: rgb(120,120,120);
+  width: 120px;
+  height: 45px;
+  border-radius: 8px;
+  right: calc(50vw - 280px);
+  top: 539px;
+  padding-left: 15px;
+}
+
+#currencyDropdown img {
+  width: 30px;
+  height: 30px;
+}
+
+#currencyDropdown p {
+  margin-left: 8px;
+  margin-bottom: 0;
+  line-height: 0;
+  font-size: 30px;
+  font-weight: 750;
+  color: rgb(255, 200, 100);
+}
+
+#transactButtons {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#transactButtons button {
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+#deposit {
+  background: rgb(70, 120, 190);
+  color: rgb(255,255,255);
+  width: 35%;
+}
+
+#deposit:hover {
+  background: rgb(63, 108, 171);
+}
+
+#withdrawal {
+  background: rgb(100, 200, 140);
+  color: rgb(255,255,255);
+  width: 45%;
+}
+
+#withdrawal:hover {
+  background: rgb(110, 220, 154);
+}
+
+#staked {
+  position: absolute;
+  top: 440px;
+  right: calc(50vw - 280px);
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  background: rgb(230, 230, 230);
+  border-radius: 25px;
+  margin-bottom: 0;
+  line-height: 0;
+}
+
+#vaultIcon {
+  width: 40px;
+  height: 40px;
+}
+
+#staked p {
+  margin-bottom: 0;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+#transactError {
+  position: absolute;
+  margin-bottom: 0;
+  top: 600px;
+  left: calc(50vw - 270px);
+  font-size: 20px;
+  font-weight: 600;
+  color: red;
+}
+
+#claimBar {
+  width: 50%;
+  height: 30px;
+  margin-top: 20px;
+  background:rgb(255, 108, 182);
+  transform: translate(0, 2px);
+  text-align: center;
+}
+
+#claimBarContext {
+  position: absolute;
+  top: 745px;
+  left: 50vw;
+  transform: translate(-50%, 0);
+  color: rgb(100,100,100);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 2;
+}

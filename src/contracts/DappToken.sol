@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.3;
 
+// Reward token from staking coins
 contract DappToken {
     string  public name = "DApp Token";
     string  public symbol = "DAPP";

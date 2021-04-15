@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.3;
 
+// Mock Dai token, currency for staking
 contract DaiToken {
     string  public name = "Mock DAI Token";
     string  public symbol = "mDAI";

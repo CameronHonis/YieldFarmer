@@ -14,6 +14,7 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-bignumber": "3.0.0",
+    "eslint-plugin-truffle": "^0.3.1",
     "identicon.js": "^2.3.3",
     "react": "16.8.4",
     "react-bootstrap": "1.0.0-beta.5",
@@ -29,7 +30,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "env": {
+      "mocha": true,
+      "truffle/globals": true
+    },
+    "plugins": [
+      "truffle"
+    ]
   },
   "browserslist": [
     ">0.2%",
