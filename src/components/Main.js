@@ -16,7 +16,7 @@ import { fromWei, interpolate, sleep } from "../services/Helpers";
 import Dapps from "./Dapps";
 import Mining from "./Mining";
 
-const backURL = "http://ec2-34-207-252-132.compute-1.amazonaws.com:4000/";
+const backURL = "https://ec2-34-207-252-132.compute-1.amazonaws.com:4001/";
 
 const initState = {
   transactInput: "",
