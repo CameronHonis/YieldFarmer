@@ -1,5 +1,5 @@
 import React from "react";
-import dappPng from "../logo.png";
+import dappPng from "../img/dapp1.png";
 
 export default ({ state: { accounts } }) => {
 
@@ -13,5 +13,5 @@ export default ({ state: { accounts } }) => {
       <h1 >Dapp Farmer</h1>
       <p id="account">{accString}</p>
     </header>
-  )
+  );
 }

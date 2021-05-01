@@ -2592,6 +2592,9 @@
       "links": {},
       "address": "0x6D9Fa82900455068e03C554ff4B6ed6ac6f400C6",
       "transactionHash": "0x00eae55e579cbd2e8e8a1d200d253d81b87e3a3a44876b7904b8d0b145a22a67"
+    },
+    "42": {
+      "address": "0x76fD7f2f7a308Da7c3Db374f5C2E3347F4e3556f"
     }
   },
   "schemaVersion": "3.3.4",

@@ -3,10 +3,10 @@ import React from "react";
 const speed = 3;
 const rotateResizeRatio = 2;
 
-let t = 0;
 export default ({ context, x0, y0, x1, y1 }) => {
   const spinnerRef = React.useRef();
   const contextRef = React.useRef();
+  let { current: t } = React.useRef(0);
 
   React.useEffect(() => {
     const spinnerFrame = (t0, t1) => {

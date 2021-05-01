@@ -5,7 +5,7 @@ pragma solidity ^0.8.3;
 contract DappToken {
     string  public name = "DApp Token";
     string  public symbol = "DAPP";
-    uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
+    uint256 public totalSupply = 1000000000000000000000000000000; // 1 trillion tokens
     uint8   public decimals = 18;
 
     event Transfer(
