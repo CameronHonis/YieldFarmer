@@ -16,7 +16,7 @@ import { fromWei, interpolate, sleep } from "../services/Helpers";
 import Dapps from "./Dapps";
 import Mining from "./Mining";
 
-const backURL = "https://ec2-34-207-252-132.compute-1.amazonaws.com:4000/";
+const backURL = "http://ec2-34-207-252-132.compute-1.amazonaws.com:4000/";
 
 const initState = {
   transactInput: "",
@@ -81,12 +81,12 @@ export default ({ state, setState }) => {
         setMainState(mainState => ({...mainState, disconnected: false}));
         if (!refs.rewardBar.current && !refs.rewardText.current) return;
         refs.rewardBar.current.style.width = 600*res.data[0]/res.data[1] + "px";
-        refs.rewardText.current.textContent = "Staking rewards available in " + (res.data[1] - res.data[0]);
+        refs.rewardText.current.textContent = "Staking rewards available in " + Math.floor(res.data[1] - res.data[0]);
         const barTL = gsap.timeline({repeat: -1});
         barTL.to(refs.rewardBar.current, { width: "0px", duration: .5 });
         barTL.to(refs.rewardBar.current, { width: "610px", duration: res.data[1] - .5, ease: "none" });
         barTL.time(res.data[0]);
-        textLoop(res.data[1] - res.data[0], res.data[1], textLoopId);
+        textLoop(Math.floor(res.data[1] - res.data[0]), res.data[1], textLoopId);
       } catch(err) {
         setMainState(mainState => ({...mainState, disconnected: true}));
       }
