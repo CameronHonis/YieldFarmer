@@ -13,7 +13,7 @@ import Welcome from "./Welcome";
 import Mining from "./Mining";
 import { sleep } from "../services/Helpers";
 
-const backURL = "https://ec2-34-207-252-132.compute-1.amazonaws.com:4001/";
+const backURL = "http://ec2-34-207-252-132.compute-1.amazonaws.com";
 
 const initState = {
   web3: null,
