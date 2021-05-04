@@ -103,7 +103,7 @@ const App = () => {
   }, [state.netId]);
 
   React.useEffect(() => {
-    console.log("a");
+    console.log("init web3");
     if (!("methods" in state.daiToken)
     || !("methods" in state.dappToken)
     || !("methods" in state.tokenFarm)
@@ -175,6 +175,7 @@ const App = () => {
   }, [state.daiToken, state.welcomePackageHash]);
 
   React.useEffect(() => {
+    console.log("set lastState");
     refs.lastState = state;
   }, [state]);
 
