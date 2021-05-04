@@ -103,6 +103,7 @@ const App = () => {
   }, [state.netId]);
 
   React.useEffect(() => {
+    console.log("a");
     if (!("methods" in state.daiToken)
     || !("methods" in state.dappToken)
     || !("methods" in state.tokenFarm)
@@ -111,7 +112,7 @@ const App = () => {
     && state.tokenFarm === refs.lastState.tokenFarm 
     && JSON.stringify(state.accounts) === JSON.stringify(refs.lastState.accounts))) return;
     const updateContractsData = async () => {
-      console.log("a");
+      console.log("a1");
       setState(state => ({...state, loading: true}));
       const daiBalance = (await state.daiToken.methods.balanceOf(state.accounts[0]).call()).toString();
       console.log("a2");
@@ -123,6 +124,22 @@ const App = () => {
     }
     updateContractsData();
   }, [state.accounts, state.daiToken, state.dappToken, state.tokenFarm]);
+
+  React.useEffect(() => {
+    console.log("accounts");
+  },[state.accounts]);
+
+  React.useEffect(() => {
+    console.log("daiToken");
+  }, [state.daiToken]);
+
+  React.useEffect(() => {
+    console.log("dappToken");
+  }, [state.dappToken]);
+
+  React.useEffect(() => {
+    console.log("tokenFarm");
+  }, [state.tokenFarm]);
 
   React.useEffect(() => {
     if (!state.dappToken || state.dappToken === refs.lastState.dappToken) return;
