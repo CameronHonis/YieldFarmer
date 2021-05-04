@@ -89,9 +89,12 @@ const App = () => {
   }, [state.web3]);
 
   React.useEffect(() => {
+    console.log("netId");
     if (state.netId === refs.lastState.netId) return;
+    console.log("netId changed");
     // contracts
     if (state.netId in daiAbi.networks && state.netId in dappAbi.networks && state.netId in farmAbi.networks) {
+      console.log("setting tokens");
       const daiToken = new state.web3.eth.Contract(daiAbi.abi, daiAbi.networks[state.netId].address);
       const dappToken = new state.web3.eth.Contract(dappAbi.abi, dappAbi.networks[state.netId].address);
       const tokenFarm = new state.web3.eth.Contract(farmAbi.abi, farmAbi.networks[state.netId].address);
