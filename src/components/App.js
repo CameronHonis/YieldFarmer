@@ -104,6 +104,15 @@ const App = () => {
 
   React.useEffect(() => {
     console.log("init web3");
+    console.log(
+      "methods" in state.daiToken, 
+      "methods" in state.dappToken, 
+      "methods" in state.tokenFarm,
+      state.daiToken === refs.lastState.daiToken, 
+      state.dappToken === refs.lastState.dappToken,
+      state.tokenFarm === refs.lastState.tokenFarm, 
+      JSON.stringify(state.accounts) === JSON.stringify(refs.lastState.accounts)
+    );
     if (!("methods" in state.daiToken)
     || !("methods" in state.dappToken)
     || !("methods" in state.tokenFarm)
