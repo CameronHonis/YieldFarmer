@@ -75,11 +75,16 @@ const App = () => {
   }, [state.accounts]);
 
   React.useEffect(() => {
+    console.log("web3");
     const pollUserData = async () => {
+      console.log("polling network data");
       const netId = await state.web3.eth.net.getId();
       const accounts = await state.web3.eth.getAccounts();
+      console.log(netId, accounts);
       if (accounts[0]) {
+        console.log("account changed");
         const ethBalance = await state.web3.eth.getBalance(accounts[0]);
+        console.log(ethBalance);
         setState(state => ({...state, netId, accounts, ethBalance}));
       }
       await sleep(1000);
