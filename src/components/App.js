@@ -111,10 +111,14 @@ const App = () => {
     && state.tokenFarm === refs.lastState.tokenFarm 
     && JSON.stringify(state.accounts) === JSON.stringify(refs.lastState.accounts))) return;
     const updateContractsData = async () => {
+      console.log("a");
       setState(state => ({...state, loading: true}));
       const daiBalance = (await state.daiToken.methods.balanceOf(state.accounts[0]).call()).toString();
+      console.log("a2");
       const dappBalance = (await state.dappToken.methods.balanceOf(state.accounts[0]).call()).toString();
+      console.log("a3");
       const stakedDai = (await state.tokenFarm.methods.stakingBalance(state.accounts[0]).call()).toString();
+      console.log("a4");
       setState(state => ({...state, daiBalance, dappBalance, stakedDai, loading: false}));
     }
     updateContractsData();
@@ -127,6 +131,7 @@ const App = () => {
     const updateDapp = async () => {
       console.log("updateDapp");
       const dappBalance = (await state.dappToken.methods.balanceOf(state.accounts[0]).call()).toString();
+      console.log("c2");
       setState(state => ({...state, dappBalance }));
     }
     state.dappToken.events.Transfer({filter: {_to: state.accounts[0]}}).on("data", updateDapp);
@@ -143,7 +148,9 @@ const App = () => {
       if (refs.lastState.welcomePackageHash === data.transactionHash) {
         setState(state => ({...state, welcomePackageHash: ""}));
       }
+      console.log("b");
       const daiBalance = (await state.daiToken.methods.balanceOf(state.accounts[0]).call()).toString();
+      console.log("b2");
       setState(state => ({...state, daiBalance }));
     }
     state.daiToken.events.Transfer({filter: {_to: state.accounts[0]}}).on("data", updateDai);
