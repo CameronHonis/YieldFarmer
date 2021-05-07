@@ -43,22 +43,39 @@ const App = () => {
   });
 
   React.useEffect(() => {
+    if (refs.renders === 1) initBlockchain();
+  }, [state]);
+
+  const initBlockchain = async () => {
     const loadProvider = async () => {
-      console.log("loading provider");
-      // attempt to retrieve provider
-      if (window.ethereum) {
-        setState(state => ({...state, web3: new Web3(window.ethereum), providerError: false}));
-        console.log("loaded provider from window.ethereum");
-      } else if (window.web3) {
-        setState(state => ({...state, web3: window.web3.currentProvider, providerError: false}));
-        console.log("loaded provider from window.web3");
-      } else {
-        console.warn("failed to load provider");
+      try {
+        if (window.ethereum) {
+          const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+          setState(state => ({...state, web3: new Web3(window.ethereum), accounts, providerError: false}));
+        } else {
+          throw new Error();
+        }
+      } catch(err) {
         setState(state => ({...state, web3: null, providerError: true}));
-        setTimeout(() => loadProvider(), 2000);
-      }
+        await sleep(2000);
+        await loadProvider();
+      }        
     }
-    if (refs.renders === 1) loadProvider();
+    // init web3
+    await loadProvider();
+    // init listeners
+    window.ethereum.on("accountsChanged", accounts => {
+      setState(state => ({...state, accounts}));
+    });
+    window.ethereum.on("chainChanged", () => {
+      if (refs.lastState.web3) {
+        state.web3.eth.net.getId().then(netId => setState(state => ({...state, netId})));
+      }
+    });
+  }
+
+  React.useEffect(() => {
+    if (refs.renders === 1) initBlockchain();
   }, [state]);
 
   React.useEffect(() => {
